@@ -2,17 +2,20 @@ apply plugin: 'com.android.library'
 apply from: 'gradle-maven-push.gradle'
 
 android {
-  compileSdkVersion 25
-  buildToolsVersion "25.0.2"
+  compileSdkVersion 26
+  buildToolsVersion "26.0.1"
   resourcePrefix 'lottie_'
 
   defaultConfig {
-    minSdkVersion 16
-    targetSdkVersion 25
-
+    minSdkVersion 14
+    targetSdkVersion 26
+    versionCode 100
+    versionName "2.3.2-SNAPSHOT"
   }
   lintOptions {
     abortOnError true
+    textReport true
+    textOutput 'stdout'
   }
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_7
@@ -21,9 +24,9 @@ android {
 }
 
 dependencies {
-  compile 'com.android.support:appcompat-v7:25.1.1'
+  compile "com.android.support:appcompat-v7:$supportLibVersion"
   testCompile 'junit:junit:4.12'
-  testCompile "org.robolectric:robolectric:3.1.2"
+  testCompile "org.robolectric:robolectric:3.4.2"
 }
 
 task javadoc(type: Javadoc) {
